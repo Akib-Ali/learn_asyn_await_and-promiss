@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learn Async await Es6</h1>
+
+</body>
+</html>
+
+<script>
+
+    let datas = [
+        {name:"Urooz" , qualification : "btech"},
+        {name:"Adil", qualification:"Mba"},
+        {name:"Nishi", qualification:"Mtech"}
+    ]
+
+       function getdatas(){
+
+       setTimeout(()=>{
+
+        let output =""
+        datas.forEach((elem,index) => {
+
+        output = output +  `<li> ${elem.name}</li>`
+        document.body.innerHTML = output
+        });
+
+       },1000)
+
+
+    }
+
+    // getdatas()
+
+
+    function createdata(newdata){
+
+    return new Promise((resolved,reject)=>{
+
+    setTimeout(()=>{
+
+       datas.push(newdata)
+
+       let error = false
+       if(!error){
+        resolved()
+
+       }else{
+        reject("something went wrong")
+       }
+
+     },4000)
+})
+
+}
+
+
+    // createdata({name: "Aman" ,qualification:"12th"})
+    // .then(getdatas)
+    // .catch((err)=>{
+    //     console.log(err)
+
+    // })
+
+
+    
+async function start(){
+
+  await  createdata({name: "Aman" ,qualification:"12th"})
+  getdatas()
+
+
+}
+
+start()
+
+
+    
+</script>
