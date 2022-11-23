@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Learn Ecmascript </h2>
+    <h2>Learn Ecmascript Callback </h2>
 </body>
 </html>
 
@@ -32,24 +32,25 @@
             
         });
 
-      },3000)
+      },1000)
 
     }
 
-function createdatas(newdatas){
+function createdatas(newdatas,callback){
 
     setTimeout(()=>{
 
         datas.push(newdatas)
+        callback()
 
     },2000)
 
 
 }
 
-createdatas({name : "Akil", profession:"shopkeeper"})
+createdatas({name : "Akil", profession:"shopkeeper"},getdatas)
 
 
 
-    getdatas()
+    // getdatas()
 </script>
